@@ -69,6 +69,9 @@ app.get('/static', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'static', 'index.html'));
 });
 
+app.get('/services', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'services.html'));
+});
 
 app.get('/404', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', '404.html'));

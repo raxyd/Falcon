@@ -8,14 +8,52 @@
 </head>
 <body>
     <nav>
-        <a href="/">Home</a>
         <a href="/semag">Games</a>
-        <a href="#services">Services</a>
+        <a href="/services">Services</a>
     </nav>
     <div class="specs"></div>
     <div class="moon"></div>
     <div class="stars"></div>
-    <h1>Welcome to the Starry Night</h1>
+    <h1>Welcome to Fighting Falcon</h1>
     <script src="js/script.js"></script>
+    <div id="header">
+        <center><form id="uv-form">
+           <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"> 
+           <input id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input">
+         </form></center>
+        <div id="uv-error"></div>
+        <div id="uv-error-code"></div>
+     </div>
+     <script src="/vn/uv.bundle.js" defer=""></script>
+     <script src="/vn/uv.config.js" defer=""></script>
+     <script src="/vn/register-sw.js" defer=""></script>
+     <script src="/vn/search.js" defer=""></script>
+     <script src="/vn/index.js" defer=""></script>
+     <script>
+        function openGame() {
+                var url = window.location.origin;
+        
+                // Open a new window with the desired URL
+                const win = window.open('about:blank', '_blank');
+        
+                if (win) {
+                        var iframe = win.document.createElement('iframe');
+                        iframe.style.border = 'none';
+                        iframe.style.width = '100%';
+                        iframe.style.height = '100%';
+                        iframe.src = url;
+                        iframe.allowFullscreen = true;
+                        iframe.style = "position: fixed; top: 0px; bottom: 0px; right: 0px; width: 100%; border: none; margin: 0; padding: 0; overflow: hidden; height: 100%;";
+        
+                        // Append the iframe to the new window's document body
+                        win.document.body.appendChild(iframe);
+        
+                        // Redirect the original window
+                        window.location.replace('https://classroom.google.com/');
+                } else {
+                    alert('Unable to open the new window. Please check your popup blocker settings.');
+                }
+            }
+            </script>
 </body>
 </html>
