@@ -3,32 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starry Night</title>
+    <title>Quasar</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <div id="nebula"></div>
     <nav>
+        <a href="/">Home</a>
         <a href="/semag">Games</a>
         <a href="/services">Services</a>
     </nav>
     <div class="specs"></div>
     <div class="moon"></div>
     <div class="stars"></div>
-    <h1>Welcome to Fighting Falcon</h1>
+    <h1>Welcome to Quasar</h1>
     <script src="js/script.js"></script>
     <div id="header">
         <center><form id="uv-form">
            <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"> 
-           <input id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input">
+           <input id="uv-address" type="text" placeholder="Search Google or type a URL" class="form__input">
          </form></center>
         <div id="uv-error"></div>
         <div id="uv-error-code"></div>
      </div>
-     <script src="/vn/uv.bundle.js" defer=""></script>
-     <script src="/vn/uv.config.js" defer=""></script>
-     <script src="/vn/register-sw.js" defer=""></script>
-     <script src="/vn/search.js" defer=""></script>
-     <script src="/vn/index.js" defer=""></script>
+     <script src="static/uv/uv.bundle.js" defer></script>
+     <script src="static/uv/uv.config.js" defer></script>
+     <script src="static/register-sw.js" defer></script>
+     <script src="static/search.js" defer></script>
+     <script src="static/index.js" defer></script>
+     <script src="static/error.js" defer></script>
      <script>
         function openGame() {
                 var url = window.location.origin;

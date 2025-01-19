@@ -2,8 +2,8 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #151515;
-    color: #dbdbdb;
+    background-color: black;
+    color: #dcdcdc;
     font-family: 'Roboto', sans-serif;
     overflow: hidden;
     display: flex;
@@ -11,6 +11,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    background: radial-gradient(circle, rgba(61, 90, 241, 1) 0%, rgba(11, 11, 145, 1) 35%, rgba(0, 0, 50, 1) 75%);
 }
 
 /* Navigation Styles */
@@ -18,28 +19,43 @@ nav {
     position: absolute;
     top: 0;
     width: 100%;
-    background-color: rgba(20, 20, 20, 0.9);
+    background-color: rgba(0, 7, 24, 0.7);
     padding: 1rem;
     display: flex;
     justify-content: space-around;
     z-index: 10;
     border-bottom: 2px solid #333;
-    border-radius: 0 0 15px 15px; /* Rounding in nav */
+    border-radius: 0 0 15px 15px;
 }
 
 nav a {
-    color: #dbdbdb;
+    color: #dcdcdc;
     margin: 0 1rem;
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1rem;
-    transition: color 0.3s, transform 0.2s; /* Smooth hover transition */
+    transition: color 0.3s, transform 0.2s;
     text-shadow: 1px 1px 2px #000;
+    border-radius: 5px;
 }
 
 nav a:hover {
     color: #ffffff;
     transform: translateY(-2px);
+}
+
+/* Nebula effect */
+#nebula {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/public/img/space.jpg') repeat; /* Replace with your local image path */
+    opacity: 0.1; /* Transparency */
+    pointer-events: none;
+    z-index: 5;
+    animation: nebula-move 30s linear infinite;
 }
 
 /* Background Elements */
@@ -51,23 +67,22 @@ nav a:hover {
     left: 0;
     z-index: -1;
     pointer-events: none;
-    background: rgba(0, 0, 0, 0.2);
-    mask-image: radial-gradient(#000, transparent); /* Gritty texture */
 }
 
+/* Stars with galaxy colors */
 .spec, .star {
     position: absolute;
     width: 4px;
     height: 4px;
     background-color: #ffffff;
-    border-radius: 2px; /* Rounded edges */
+    border-radius: 2px;
     animation: float 15s linear infinite;
 }
 
 .moon {
     width: 120px;
     height: 120px;
-    background-color: #fcf4af;
+    background-color: #8b9bb8;
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
     position: absolute;
@@ -75,8 +90,8 @@ nav a:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    border: 4px solid #aaa; /* Rough border */
-    filter: blur(0.5px); /* Slight blur for smoothness */
+    border: 4px solid #aaa;
+    filter: blur(0.5px);
 }
 
 /* Animations */
@@ -94,9 +109,13 @@ nav a:hover {
     }
 }
 
-@keyframes twinkle {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+@keyframes nebula-move {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100vw 100vh;
+    }
 }
 
 /* Page Content */
@@ -104,10 +123,9 @@ h1 {
     margin-top: 20vh;
     z-index: 2;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
-    font-size: 2.5rem; /* Bold and prominent */
+    font-size: 2.5rem;
 }
 
-/* Extra Gritty and Smooth Elements */
 .services {
     margin-top: 20px;
     z-index: 2;
@@ -116,33 +134,39 @@ h1 {
 }
 
 .service-container {
-    border: 1px solid #dbdbdb;
+    border: 1px solid #dcdcdc;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Gritty shadow */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    animation: nebula-move 30s linear infinite alternate-reverse;   
 }
 
+/* Updated Game Buttons */
 .game-buttons {
     margin-top: 20px;
     z-index: 2;
+    display: flex; /* Flexbox layout */
+    flex-wrap: wrap; /* Wrap buttons to new row if necessary */
+    justify-content: center; /* Center buttons horizontally */
 }
 
 button {
-    background-color: #dbdbdb;
-    color: #151515;
-    border: 2px solid #333;
+    background: linear-gradient(135deg, #485563, #29323c); /* Galaxy-themed gradient */
+    color: #dcdcdc;
+    border: 2px solid #dcdcdc;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 10px; /* Rounded corners */
-    transition: background-color 0.3s, transform 0.2s; /* Smooth hover transition */
+    border-radius: 15px;
+    transition: background-color 0.3s, transform 0.2s;
     text-shadow: 1px 1px 2px #000;
+    margin: 5px 10px; /* Space between buttons */
 }
 
 button:hover {
-    background-color: #ffffff;
+    background: linear-gradient(135deg, #556270, #485563);
     transform: scale(1.05);
 }
 
@@ -166,6 +190,16 @@ input[type="text"] {
 }
 
 input[type="text"]::placeholder {
-    color: #dbdbdb;
+    color: #dcdcdc;
     opacity: 0.7;
+}
+
+/* Breathe Animation */
+@keyframes bg-breathe {
+    0%, 100% {
+        background-position: top;
+    }
+    50% {
+        background-position: bottom;
+    }
 }
